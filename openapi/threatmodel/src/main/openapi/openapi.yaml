@@ -1,0 +1,238 @@
+openapi: 3.0.3
+
+info:
+  title: "${project.name}"
+  version: "${project.version}"
+  description: |
+    "${project.description}"
+    
+  contact:
+    name: 'Suggestions, contact, support and error reporting'
+    url: 'https://www.te2m.de'
+    email: api@te2m.de
+
+tags:
+  - name: Threatmodel
+    description: Services providing threatmodel related data
+
+servers:
+  - url: 'http://localhost:8081'
+
+paths:
+
+#
+# Projects
+#
+
+
+  '/threatmodels':
+    get:
+      tags:
+        - Threatmodel
+      operationId: getAllThreatmodels
+      description: Provides the data for all threatmodels
+      responses:
+        '200':
+          description: The requested threat model data.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/ThreatmodelDataView'
+        '401':
+          description: The identity of the requesting user could not be determined.
+        '403':
+          description: The requesting user lacks sufficient permissions to access the requested report.
+        '404':
+          $ref: '#/components/responses/NotFound'      
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Threatmodel
+      operationId: createThreatmodel
+      description: Create new threat model
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThreatmodelDataView'
+      responses:
+        '200':
+          description: The created threat model data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreatmodelDataView'
+        '401':
+          description: The identity of the requesting user could not be determined.
+        '403':
+          description: The requesting user lacks sufficient permissions to access the requested report.
+        '404':
+          $ref: '#/components/responses/NotFound'  
+        '409':
+          $ref: '#/components/responses/DuplicateMessageId'
+      security:
+        - bearerAuth: []
+  '/threatmodel/{iD}':
+    parameters:
+      - in: path
+        name: iD
+        description: ID of an threat model
+        schema:
+          type: string
+        required: true
+    get:
+      tags:
+        - Threatmodel
+      operationId: getThreatmodelByID
+      description: Return the Threatmodel 
+      responses:
+        '200':
+          description: The requested Threatmodel
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreatmodelDataView'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    post:
+      tags:
+        - Threatmodel
+      operationId: postThreatmodel
+      description: Apply the provided command to the project identified with the provided ID. 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThreatmodelDataView'
+      responses:
+        '200':
+          description: The requested threat model
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreatmodelDataView'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/DuplicateMessageId'
+
+
+
+components:
+  schemas:
+#
+# Base definitions
+#
+    Identifyable:
+      type: object
+      properties:
+        id:
+          type: string
+    Timestamped:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        lastUpdated:
+          type: string
+          format: date-time
+    Authored:
+      type: object
+      properties:
+        createdBy:
+          type: string
+        lastUpdatedBy:
+          type: string
+    Named:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+      required: 
+        - name      
+    DataView:
+      allOf:
+        - $ref: '#/components/schemas/Identifyable'
+        - $ref: '#/components/schemas/Timestamped'   
+        - $ref: '#/components/schemas/Authored'
+
+    IDList:
+      type: array
+      items:
+        type: string
+
+# 
+# Project data
+#
+
+    ThreatmodelBaseData:
+      allOf:
+        - $ref: '#/components/schemas/Named'
+        - type: object
+          properties:
+            locked:
+              type: boolean
+    ThreatmodelBaseDataView:
+      allOf:
+        - $ref: '#/components/schemas/ThreatmodelBaseData'
+        - $ref: '#/components/schemas/DataView'
+    ThreatmodelDataView:
+      allOf:
+        - $ref: '#/components/schemas/ThreatmodelBaseDataView'
+        - type: object
+          properties:
+            placeholder: 
+              type: string
+
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+  responses:
+    Success:
+      description: The request was handled successfully.
+    Forbidden:
+      description: >-
+        The HTTP 403 Forbidden client error status response code indicates that
+        the server understood the request but refuses to authorize it.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: The requested resource was not found
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InvalidInput:
+      description: Content provided for this request was invalid
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    DuplicateMessageId:
+      description: The command with the provided messageId was already successfully processed.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  

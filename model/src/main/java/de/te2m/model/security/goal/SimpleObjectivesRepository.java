@@ -1,15 +1,10 @@
 package de.te2m.model.security.goal;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
 import de.te2m.model.security.common.Description;
 import de.te2m.model.security.common.ID;
 import de.te2m.model.security.common.Name;
-import de.te2m.model.security.countermeasure.Countermeasure;
+
+import java.util.*;
 
 public class SimpleObjectivesRepository implements Objectives{
 

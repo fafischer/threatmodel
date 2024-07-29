@@ -1,19 +1,12 @@
 package de.te2m.model.security.tcb;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
-import de.te2m.model.security.common.Description;
 import de.te2m.model.security.common.ID;
-import de.te2m.model.security.common.Name;
 import de.te2m.model.security.items.ItemOfConcern;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.Singular;
 import org.jmolecules.ddd.annotation.Entity;
 import org.jmolecules.ddd.annotation.Identity;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class TrustedComputingBase {

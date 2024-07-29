@@ -1,14 +1,10 @@
 package de.te2m.model.security.threat;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
 import de.te2m.model.security.common.ID;
 import de.te2m.model.security.goal.Objective;
 import de.te2m.model.security.items.ItemOfConcern;
+
+import java.util.*;
 
 public class SimpleThreatRepository implements Threats{
 

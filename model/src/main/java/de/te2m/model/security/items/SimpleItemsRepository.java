@@ -1,15 +1,14 @@
 package de.te2m.model.security.items;
 
+import de.te2m.model.security.common.Description;
+import de.te2m.model.security.common.ID;
+import de.te2m.model.security.common.Name;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import de.te2m.model.security.common.Description;
-import de.te2m.model.security.common.ID;
-import de.te2m.model.security.common.Name;
-import org.jmolecules.ddd.annotation.Repository;
 
 public class SimpleItemsRepository implements Items {
 

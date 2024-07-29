@@ -1,13 +1,10 @@
 package de.te2m.model.security.countermeasure;
 
-import java.util.Optional;
-
 import de.te2m.model.security.common.Description;
 import de.te2m.model.security.common.ID;
-import de.te2m.model.security.common.Name;
-import de.te2m.model.security.items.Category;
-import de.te2m.model.security.items.ItemOfConcern;
 import org.junit.jupiter.api.Test;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 

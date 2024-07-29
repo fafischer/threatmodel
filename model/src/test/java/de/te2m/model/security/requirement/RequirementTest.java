@@ -5,7 +5,7 @@ import de.te2m.model.security.common.ID;
 import de.te2m.model.security.common.Link;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class RequirementTest {
 	@Test

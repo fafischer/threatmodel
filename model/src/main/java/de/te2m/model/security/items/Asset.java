@@ -10,7 +10,7 @@ import org.jmolecules.ddd.annotation.Identity;
 
 @Entity
 @Builder
-class Asset implements ItemOfConcern{
+public class Asset implements ItemOfConcern{
 	@Getter
 	@Identity
 	private ID id;

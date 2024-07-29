@@ -1,10 +1,7 @@
 package de.te2m.model.security;
 
-import java.util.List;
-
 import de.te2m.model.security.common.Description;
 import de.te2m.model.security.common.Name;
-import de.te2m.model.security.countermeasure.Countermeasure;
 import de.te2m.model.security.countermeasure.Countermeasures;
 import de.te2m.model.security.goal.Objective;
 import de.te2m.model.security.goal.Objectives;
@@ -15,6 +12,8 @@ import de.te2m.model.security.threat.Threat;
 import de.te2m.model.security.threat.Threats;
 import lombok.Builder;
 import org.jmolecules.ddd.annotation.AggregateRoot;
+
+import java.util.List;
 
 @AggregateRoot
 @Builder

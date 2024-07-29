@@ -1,13 +1,12 @@
 package de.te2m.model.security.tcb;
 
-import java.util.stream.Collectors;
-
 import de.te2m.model.security.common.Description;
-import de.te2m.model.security.common.ID;
 import de.te2m.model.security.common.Name;
 import de.te2m.model.security.items.Category;
 import de.te2m.model.security.items.SimpleItemsRepository;
 import org.junit.jupiter.api.Test;
+
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

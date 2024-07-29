@@ -8,7 +8,7 @@ import de.te2m.model.security.items.Items;
 import de.te2m.model.security.items.SimpleItemsRepository;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ThreatModelTest {
 

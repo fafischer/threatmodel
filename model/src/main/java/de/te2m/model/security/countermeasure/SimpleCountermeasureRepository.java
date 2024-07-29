@@ -1,15 +1,10 @@
 package de.te2m.model.security.countermeasure;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 import de.te2m.model.security.common.Description;
 import de.te2m.model.security.common.ID;
-import org.jmolecules.ddd.annotation.Repository;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class SimpleCountermeasureRepository implements Countermeasures {
 

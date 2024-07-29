@@ -1,9 +1,5 @@
 package de.te2m.model.security.threat;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import de.te2m.model.security.common.Description;
 import de.te2m.model.security.common.ID;
 import de.te2m.model.security.goal.Objective;
@@ -12,6 +8,8 @@ import de.te2m.model.security.requirement.Requirement;
 import de.te2m.model.security.risk.Risk;
 import org.jmolecules.ddd.annotation.Entity;
 import org.jmolecules.ddd.annotation.Identity;
+
+import java.util.Map;
 
 @Entity
 public class Threat {

@@ -34,7 +34,7 @@
 									<version>${parent.version}</version>
 									<classifier>openapi</classifier>
 									<type>yaml</type>
-									<outputDirectory>${project.build.directory}/openapi/tm-api</outputDirectory>
+									<outputDirectory>tmp/openapi/tm-api</outputDirectory>
 									<destFileName>openapi.yaml</destFileName>
 								</artifactItem>
 							</artifactItems>

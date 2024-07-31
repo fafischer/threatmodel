@@ -13,7 +13,6 @@
 
 	<name>te2m Threatmodel API</name>
 	<description>The API providing threatmodeling features</description>
-
 	<build>
 		<plugins>
 			<!--RESOURCES-->

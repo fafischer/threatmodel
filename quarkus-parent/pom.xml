@@ -108,6 +108,11 @@
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-jdbc-mysql</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
 	</dependencies>
 	<modules>
 		<module>openapi-tm-impl</module>

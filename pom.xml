@@ -13,6 +13,7 @@
 		<module>quarkus-parent</module>
 		<module>model</module>
 		<module>doc</module>
+		<module>web-app-ng</module>
 		<!--<module>render</module>-->
 		<!--<module>repository</module>-->
 	</modules>
